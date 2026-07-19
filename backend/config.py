@@ -21,6 +21,14 @@ class ProviderConfig(BaseModel):
     protocol: str = Field(default="openai")
 
 
+def _workspace_root(config_file: Path = Path(__file__)) -> Path:
+    """Resolve the workspace root for Git and packaged release layouts."""
+    backend_parent = config_file.resolve().parent.parent
+    if backend_parent.name.lower().startswith("quantclass-backend-"):
+        return backend_parent.parent
+    return backend_parent
+
+
 def _quantclass_home() -> Path:
     """Root directory for all QuantClass data, config, md files, etc.
 
@@ -30,13 +38,14 @@ def _quantclass_home() -> Path:
          this escape hatch, ``pytest tests/test_config.py::
          test_update_default_model`` used to overwrite the real user's
          ``~/.quantclass/config.yaml`` on every test run.
-      2. ``~/.quantclass`` — default for all real deployments on macOS,
-         Linux, and Windows (``Path.home()`` resolves correctly on all).
+      2. The workspace root containing the frontend/backend release folders.
+         This keeps a plain ``python main.py`` launch self-contained, with
+         runtime data in the workspace's ``data`` directory.
     """
     env = os.getenv("QUANTCLASS_HOME")
     if env:
         return Path(env).expanduser()
-    return Path.home() / ".quantclass"
+    return _workspace_root()
 
 
 def _default_data_dir() -> str:
@@ -135,7 +144,7 @@ def create_default_config() -> ConfigData:
                 name="DeepSeek",
                 base_url="https://api.deepseek.com",
                 api_key=os.getenv("DEEPSEEK_API_KEY", ""),
-                models=["deepseek-chat", "deepseek-reasoner"]
+                models=["deepseek-chat", "deepseek-reasoner", "deepseek-v4-pro"]
             ),
             "moonshot": ProviderConfig(
                 name="Kimi (月之暗面)",
