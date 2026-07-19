@@ -7,7 +7,8 @@
   "host_permissions": [
     "https://bbs.quantclass.cn/*",
     "http://127.0.0.1/*",
-    "http://localhost/*"
+    "http://localhost/*",
+    "http://192.168.31.249/*"
   ],
   "background": {
     "service_worker": "build/service-worker.js"
