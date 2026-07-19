@@ -1,0 +1,524 @@
+/* content.css - 注入样式 */
+
+/* 摘要面板样式 */
+.quantclass-summary-panel {
+  margin: 16px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.summary-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.summary-header:hover {
+  background: linear-gradient(135deg, #40a9ff 0%, #69c0ff 100%);
+}
+
+.summary-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.summary-title .icon {
+  font-size: 16px;
+}
+
+.summary-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.icon-btn.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.collapse-icon {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-left: 4px;
+}
+
+.summary-body {
+  padding: 16px;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f0f0f0;
+  border-top-color: #1890ff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 24px;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.summary-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 14px;
+  background: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 6px;
+  color: #cf1322;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.summary-error .error-icon {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.summary-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #262626;
+  white-space: pre-wrap;
+}
+
+.summary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: #e6f7ff;
+  color: #1890ff;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 收藏按钮样式 */
+.quantclass-bookmark-container {
+  margin-top: 12px;
+}
+
+.bookmark-wrapper {
+  position: relative;
+}
+
+.bookmark-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  color: #595959;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bookmark-button:hover {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.bookmark-button.bookmarked {
+  background: #fff7e6;
+  border-color: #ffa940;
+  color: #fa8c16;
+}
+
+.bookmark-button .icon {
+  font-size: 16px;
+}
+
+/* 收藏表单 */
+.bookmark-form {
+  margin-top: 12px;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #262626;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.btn-secondary,
+.btn-primary {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  color: #595959;
+}
+
+.btn-secondary:hover {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.btn-primary {
+  background: #1890ff;
+  border: 1px solid #1890ff;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* 通知样式 */
+.quantclass-notification {
+  animation: slideIn 0.3s ease !important;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 折叠状态 */
+.summary-card.collapsed .summary-body {
+  display: none;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   发帖辅助工具栏（P7）
+   注入到 Discourse composer 的 button-bar 下方，承载 AI 润色 /
+   格式化 / 代码检查三个操作。样式与 Ant Design 蓝色系保持一致，
+   避免与论坛原生 UI 冲突。
+   ────────────────────────────────────────────────────────────── */
+
+.quantclass-assist-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin: 4px 0;
+  background: #f6faff;
+  border: 1px solid #d9ecff;
+  border-radius: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.quantclass-assist-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: #1890ff;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.quantclass-assist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  color: #595959;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.quantclass-assist-btn:hover:not(:disabled) {
+  border-color: #1890ff;
+  color: #1890ff;
+  background: #e6f7ff;
+}
+
+.quantclass-assist-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.quantclass-assist-btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Toast 通知（右上角）
+   ────────────────────────────────────────────────────────────── */
+
+.quantclass-assist-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 999999;
+  max-width: 320px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  animation: slideIn 0.25s ease-out;
+  pointer-events: none;
+}
+
+.quantclass-assist-toast-info {
+  background: #1890ff;
+}
+
+.quantclass-assist-toast-success {
+  background: #52c41a;
+}
+
+.quantclass-assist-toast-warning {
+  background: #faad14;
+}
+
+.quantclass-assist-toast-error {
+  background: #ff4d4f;
+}
+
+.quantclass-assist-toast.fade-out {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(110%); opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   代码检查问题清单面板
+   显示在工具栏下方，列出 /api/assist/check-code 返回的每条 issue。
+   每条 issue 可点击，点击后 content script 会把 textarea 光标
+   跳到对应行并选中整行 —— 在原生 textarea 环境下是最接近
+   "错误处高亮提示"（PRD §5）的可行实现。
+   ────────────────────────────────────────────────────────────── */
+
+.quantclass-issue-panel {
+  position: relative;
+  margin: 8px 0;
+  padding: 12px 14px 12px 14px;
+  background: #ffffff;
+  border: 1px solid #ffe58f;
+  border-left: 3px solid #faad14;
+  border-radius: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: #262626;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.quantclass-issue-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #d48806;
+  margin-bottom: 6px;
+}
+
+.quantclass-issue-summary {
+  color: #595959;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.quantclass-issue-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.quantclass-issue {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.quantclass-issue:hover {
+  background: #fafafa;
+}
+
+.quantclass-issue::before {
+  content: '';
+  flex-shrink: 0;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  border-radius: 50%;
+}
+
+.quantclass-issue-error {
+  color: #434343;
+}
+
+.quantclass-issue-error::before {
+  background: #ff4d4f;
+}
+
+.quantclass-issue-warning {
+  color: #434343;
+}
+
+.quantclass-issue-warning::before {
+  background: #faad14;
+}
+
+.quantclass-issue-info {
+  color: #434343;
+}
+
+.quantclass-issue-info::before {
+  background: #1890ff;
+}
+
+.quantclass-issue-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #8c8c8c;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.quantclass-issue-close:hover {
+  background: #f0f0f0;
+  color: #262626;
+}
